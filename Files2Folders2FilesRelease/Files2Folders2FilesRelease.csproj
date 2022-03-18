@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68E72165-E8D2-4B40-8801-BC16D5D160AC}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <ReleaseName>Files2Folders2Files</ReleaseName>
+    <ReleaseSetupName>Files2Folders2FilesSetup</ReleaseSetupName>
+    <ReleaseVersion>0.0.1</ReleaseVersion>
+    <ReleaseDir>$(OutputPath)Release\</ReleaseDir>
+    <ReleasesDir>$(OutputPath)Releases\</ReleasesDir>
+  </PropertyGroup>
+  <Target Name="Build">
+    <CallTarget Targets="Clean" />
+    <CallTarget Targets="CreateReleaseFiles" />
+    <CallTarget Targets="CreateReleasesFiles" />
+  </Target>
+  <Target Name="Clean">
+    <RemoveDir Directories="$(ReleaseDir)" />
+    <MakeDir Directories="$(ReleaseDir)" />
+    <RemoveDir Directories="$(ReleasesDir)" />
+    <MakeDir Directories="$(ReleasesDir)" />
+  </Target>
+  <Target Name="CreateReleaseFiles">
+    <ItemGroup>
+      <MySourceBinaries Include="$(SolutionDir)$(ReleaseName)\bin\$(Configuration)\**\*.*;" />
+      <MySourceDocs Include="$(SolutionDir)$(ReleaseName)\Resources\Docs\**\*.*;" />
+    </ItemGroup>
+    <Copy SourceFiles="@(MySourceBinaries)" DestinationFiles="@(MySourceBinaries->'$(ReleaseDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(MySourceDocs)" DestinationFiles="@(MySourceDocs->'$(ReleaseDir)\Docs\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="CreateReleasesFiles">
+    <Delete Files="$(ReleasesDir)$(ReleaseName).$(ReleaseVersion).zip" />
+    <ZipDirectory SourceDirectory="$(ReleaseDir)" DestinationFile="$(ReleasesDir)$(ReleaseName).$(ReleaseVersion).zip" />
+    <Delete Files="$(ReleasesDir)$(ReleaseSetupName).$(ReleaseVersion).zip" />
+    <ZipDirectory SourceDirectory="$(SolutionDir)$(ReleaseSetupName)\$(Configuration)" DestinationFile="$(ReleasesDir)$(ReleaseSetupName).$(ReleaseVersion).zip" />
+  </Target>
+</Project>
