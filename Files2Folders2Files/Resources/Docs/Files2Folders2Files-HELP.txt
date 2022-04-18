@@ -1,5 +1,5 @@
 ---------------------------------------------------------------
-Files 2 Folders 2 Files - Help version 20220317
+Files 2 Folders 2 Files - Help version 20220418
 Copyright (c) 2016-2022 Files 2 Folders 2 Files - All Rights Reserved
 ---------------------------------------------------------------
 
@@ -18,7 +18,7 @@ Files 2 Folders 2 Files can perform the following tasks:
 
 [II] Contributing
 ---------------------------------------------------------------
-Let's work better together. I am looking to collaborate with like-minded people who want to contribute in any capacity. Membership is open to everyone and I need your help if you are a:
+Let's work better together. We are looking to collaborate with like-minded people who want to contribute in any capacity. Collaboration is open to everyone and we need your help if you are a:
 - Collector
 - Database Administrator
 - Datter

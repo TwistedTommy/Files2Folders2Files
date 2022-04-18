@@ -11,8 +11,12 @@ Files 2 Folders 2 Files can perform the following tasks:
   
 The following tools and extensions are required to be installed in your Visual Sudio IDE:  
 - Microsoft Visual Studio Installer Projects
+## Projects
+- Files2Folders2Files - Windows Forms App
+- Files2Folders2FilesRelease - Release Project
+- Files2Folders2FilesSetup- Setup Project
 ## Contributing
-Let's work better together. I am looking to collaborate with like-minded people who want to contribute in any capacity. Membership is open to everyone and I need your help if you are a:  
+Let's work better together. We are looking to collaborate with like-minded people who want to contribute in any capacity. Collaboration is open to everyone and we need your help if you are a:  
 - Collector
 - Database Administrator
 - Datter
@@ -26,4 +30,4 @@ Let's work better together. I am looking to collaborate with like-minded people 
 GitHub: [https://github.com/TwistedTommy/Files2Folders2Files](https://github.com/TwistedTommy/Files2Folders2Files "GitHub")  
 ## Disclaimer
 This software may only be used and/or distributed in accordance with the license with which it is distributed.
-###### Copyright (c) 2016-2022 Files 2 Folders 2 Files - All Rights Reserved v2022-03-17-00
+###### Copyright (c) 2016-2022 Files 2 Folders 2 Files - All Rights Reserved v2022-04-18-00
